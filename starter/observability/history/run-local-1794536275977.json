@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "1.0",
+  "run": {
+    "runId": "local-1794536275977",
+    "source": "local",
+    "startedAt": "2026-11-13T02:17:09.820Z",
+    "commitSha": null,
+    "workflow": null,
+    "completeness": "complete",
+    "completenessReason": null
+  },
+  "tests": [
+    {
+      "id": "api/products.spec.ts::can retrieve a product by ID from DummyJSON::chromium",
+      "title": "can retrieve a product by ID from DummyJSON",
+      "file": "api/products.spec.ts",
+      "project": "chromium",
+      "finalStatus": "passed",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 587,
+          "retry": 0
+        }
+      ],
+      "durationMs": 587,
+      "evidenceRefs": []
+    },
+    {
+      "id": "example.spec.ts::has title::chromium",
+      "title": "has title",
+      "file": "example.spec.ts",
+      "project": "chromium",
+      "finalStatus": "passed",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 18806,
+          "retry": 0
+        }
+      ],
+      "durationMs": 18806,
+      "evidenceRefs": []
+    },
+    {
+      "id": "example.spec.ts::get started link::chromium",
+      "title": "get started link",
+      "file": "example.spec.ts",
+      "project": "chromium",
+      "finalStatus": "passed",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 21461,
+          "retry": 0
+        }
+      ],
+      "durationMs": 21461,
+      "evidenceRefs": []
+    },
+    {
+      "id": "mocking/product-browser-mock.spec.ts::intercepta la solicitud del navegador y muestra el producto mockeado::chromium",
+      "title": "intercepta la solicitud del navegador y muestra el producto mockeado",
+      "file": "mocking/product-browser-mock.spec.ts",
+      "project": "chromium",
+      "finalStatus": "passed",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 2990,
+          "retry": 0
+        }
+      ],
+      "durationMs": 2990,
+      "evidenceRefs": []
+    },
+    {
+      "id": "saucedemo.spec.ts::standard user can log in to SauceDemo and see the products page::chromium",
+      "title": "standard user can log in to SauceDemo and see the products page",
+      "file": "saucedemo.spec.ts",
+      "project": "chromium",
+      "finalStatus": "passed",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 3314,
+          "retry": 0
+        }
+      ],
+      "durationMs": 3314,
+      "evidenceRefs": []
+    },
+    {
+      "id": "saucedemo.spec.ts::standard user can add Sauce Labs Backpack to the cart::chromium",
+      "title": "standard user can add Sauce Labs Backpack to the cart",
+      "file": "saucedemo.spec.ts",
+      "project": "chromium",
+      "finalStatus": "passed",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 4198,
+          "retry": 0
+        }
+      ],
+      "durationMs": 4198,
+      "evidenceRefs": []
+    }
+  ],
+  "provenance": {
+    "resultsFile": "C:\\Users\\osmarin\\Desktop\\Automation Test\\Capacitacion Pruebas Automatizadas AI-Native\\AI-Native-Test-Automation-Starter\\AI-Native-Test-Automation-Starter\\starter\\test-results\\results.json",
+    "normalizedAt": "2026-11-13T02:17:55.978Z"
+  }
+}
