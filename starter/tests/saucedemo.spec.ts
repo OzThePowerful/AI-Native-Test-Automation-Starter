@@ -10,8 +10,7 @@ test('standard user can log in to SauceDemo and see the products page', async ({
   const loginPage = new LoginPage(page);
   const productsPage = new ProductsPage(page);
 
-  //expect(await loginPage.loginAs(username, password)).toBe(true);
-  await loginPage.loginAs(username, password).then(respuesta => { console.log({ respuesta }) })
+  expect(await loginPage.loginAs(username, password)).toBe(true);
 
   // Expect to land on the inventory page with the product list.
   await expect(page).toHaveURL(/\/inventory\.html$/);
@@ -33,4 +32,14 @@ test('standard user can add Sauce Labs Backpack to the cart', async ({ page }) =
   await productsPage.openCart();
   await expect(page).toHaveURL(/\/cart\.html$/);
   await expect(cartPage.item(PRODUCTS.backpack)).toBeVisible();
+});
+
+test('standard user sees an error when login credentials are invalid', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+
+  expect(await loginPage.loginAs(username, 'wrong_password')).toBe(false);
+
+  // SauceDemo keeps the user on the login page and shows an error banner.
+  await expect(loginPage.errorMessage).toBeVisible();
+  await expect(loginPage.errorMessage).toContainText('do not match');
 });

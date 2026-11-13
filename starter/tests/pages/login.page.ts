@@ -3,6 +3,10 @@ import { expect, type Page } from '@playwright/test';
 export class LoginPage {
   constructor(private readonly page: Page) {}
 
+  get errorMessage() {
+    return this.page.locator('[data-test="error"]');
+  }
+
   async loginAs(username: string, password: string): Promise<boolean> {
     try {
       await this.page.goto('/');

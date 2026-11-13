@@ -26,3 +26,11 @@ test('can retrieve a product by ID from DummyJSON', async ({ request }) => {
   expect(product.price).toBeGreaterThan(0);
   expect(product.stock).toBeGreaterThanOrEqual(0);
 });
+
+test('returns 404 when requesting a product that does not exist', async ({ request }) => {
+  const productsApi = new ProductsApi(request);
+
+  const response = await productsApi.getProduct(99999);
+
+  expect(response.status()).toBe(404);
+});

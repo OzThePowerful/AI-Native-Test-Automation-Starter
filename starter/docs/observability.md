@@ -79,6 +79,9 @@ absence of risk.
 - The parser targets the JSON reporter format of the pinned
   `@playwright/test` version — upgrade Playwright → re-validate.
 - Pass rate ≠ quality: it says nothing about coverage or risk.
+- The API spec runs once per browser project (the `request` fixture is
+  project-agnostic), so API results are counted ×3. Harmless but worth
+  knowing when reading per-project tables.
 
 ## Feedback loop
 
