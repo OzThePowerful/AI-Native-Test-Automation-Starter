@@ -1,0 +1,37 @@
+name: Validate Kit
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: ShellCheck
+        run: shellcheck scripts/verify-environment.sh
+      - name: PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          Install-Module PSScriptAnalyzer -Force -Scope CurrentUser
+          $issues = Invoke-ScriptAnalyzer -Path scripts/verify-environment.ps1 -Severity Error
+          $issues | Format-Table -AutoSize
+          if ($issues) { exit 1 }
+
+  validate:
+    needs: lint
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Run validator (bash)
+        if: runner.os != 'Windows'
+        run: bash scripts/verify-environment.sh
+      - name: Run validator (Windows PowerShell)
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: powershell -ExecutionPolicy Bypass -File scripts\verify-environment.ps1
